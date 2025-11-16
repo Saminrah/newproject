@@ -8,7 +8,7 @@ public class KodMorse {
     HashMap<Character, String> textTillMorse = new HashMap<>(); // nyckel = bokstav, värde = morsekod
 
     public KodMorse() {
-        // fyller båda hashmaps med bokstäver och motsvarande morsekod
+        // hashmaps med bokstäver och morsekod
 
         textTillMorse.put('A', ".-");   morseTillText.put(".-", 'A');
         textTillMorse.put('B', "-..."); morseTillText.put("-...", 'B');
@@ -38,7 +38,7 @@ public class KodMorse {
         textTillMorse.put('Z', "--.."); morseTillText.put("--..", 'Z');
     }
 
-    // Metod som omvandlar text till morsekod
+    // metod som omvandlar text till morsekod
     public String tillMorse(String inmatadText) {
         inmatadText = inmatadText.toUpperCase(); // gör om till versaler för att matcha nycklarna
         String resultat = ""; // lagrar den färdiga morsekoden
@@ -47,20 +47,20 @@ public class KodMorse {
         for (char tecken : inmatadText.toCharArray()) {
             if (tecken == ' ') { // mellanrum i text blir mellanrum i morsekoden
                 resultat = resultat.concat(" ");
-            } else if (textTillMorse.containsKey(tecken)) { // om tecknet finns i vår hashMap
+            } else if (textTillMorse.containsKey(tecken)) { // om tecknet finns i vår hashmap
                 resultat = resultat.concat(textTillMorse.get(tecken) + " ");
             } else { // ogiltigt tecken
                 throw new IllegalArgumentException("Tecknet '" + tecken + "' är inte giltigt i detta program.");
             }
         }
 
-        // ta bort eventuella ledande/efterföljande mellanslag (t.ex. det sista extra blanksteget)
+        // tar bort det extra blanksteg
         resultat = resultat.trim();
 
         return resultat;
     }
 
-    // Metod som omvandlar morsekod till text
+    // metod som omvandlar morsekod till text
     public String tillText(String morsekod) {
         String[] symboler = morsekod.split(" "); // delar upp morsekoden vid varje mellanslag
         String resultat = ""; // lagrar den färdiga texten

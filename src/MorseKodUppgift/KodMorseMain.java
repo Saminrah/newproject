@@ -8,7 +8,7 @@ public class KodMorseMain {
         try (Scanner inmatning = new Scanner(System.in)) { // används för att läsa användarens inmatning
             KodMorse translator = new KodMorse(); // skapar ett objekt av klassen KodMorse
 
-            // instruktioner till användaren
+            // instruktioner
             System.out.println("Denna program som översätter till och från morsekod.");
             System.out.println("Detta är ett program som översätter till och från morsekod.");
             System.out.println("-- Här Är Dina Val: --");
